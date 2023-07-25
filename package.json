@@ -22,7 +22,7 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-async-handler": "^1.2.0",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "ottoman": "^2.3.3",
     "roarr": "^7.15.0",
     "slugify": "^1.6.5",
