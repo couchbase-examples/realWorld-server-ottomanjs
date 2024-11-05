@@ -12,14 +12,14 @@ const setupOttoman = async function(){
   // TODO: Fix global plugin registration
     await registerGlobalPlugin((schema) => {
         schema.pre('save', function (doc) {
-          log.info("SAAAAAVE");
+          console.log("SAAAAAVE");
         });
       });
 
     let ottoman = getDefaultInstance();
     if (!ottoman) {
       // if not exist default one, then create
-      ottoman = new Ottoman();
+      ottoman = new Ottoman({ensureIndexes: true});
     };
   
     const endpoint = process.env.DB_ENDPOINT || "couchbase://localhost";
@@ -44,8 +44,7 @@ const setupOttoman = async function(){
     const Article = model('Article', articleSchema, { scopeName: scope });
 
     await ottoman.start();
-    log.info('Connected to Couchbase');
+    console.log('Connected to Couchbase');
 }
 
 module.exports = {setupOttoman, User, Comment, Article}
-
